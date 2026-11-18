@@ -10,6 +10,7 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.UUID;
 
 /**
@@ -57,13 +58,13 @@ public class Vehicle {
         if (id == null) {
             id = UUID.randomUUID();
         }
-        createdAt = OffsetDateTime.now();
+        createdAt = OffsetDateTime.now(ZoneOffset.UTC);
         updatedAt = createdAt;
     }
 
     @PreUpdate
     void onUpdate() {
-        updatedAt = OffsetDateTime.now();
+        updatedAt = OffsetDateTime.now(ZoneOffset.UTC);
     }
 
     public UUID getId() { return id; }

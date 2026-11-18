@@ -70,7 +70,7 @@ public class VehicleService {
         applyChanges(vehicle, request);
         vehicle.setMileage(request.mileage());
 
-        return VehicleResponse.from(vehicleRepository.save(vehicle));
+        return VehicleResponse.from(vehicleRepository.saveAndFlush(vehicle));
     }
 
     @Transactional

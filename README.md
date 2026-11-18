@@ -67,7 +67,8 @@ Example request:
 | The mileage never goes down | `409 MILEAGE_CANNOT_DECREASE` |
 | Plate format `ABC123` (car) or `ABC12D` (motorcycle) | `400 VALIDATION_ERROR` |
 
-Errors follow the shared format `{ "error", "message", "details" }`.
+Errors follow the shared format `{ "error", "message", "details" }`. A body that is not valid JSON or has
+a wrong value (e.g. an unknown `type`) returns `400 MALFORMED_REQUEST`.
 
 ---
 
