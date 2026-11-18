@@ -1,0 +1,18 @@
+# Local database for vehicle-service (ADR-004: one database per service).
+# Start:  docker compose up -d
+# Stop:   docker compose down
+services:
+  vehicles-db:
+    image: postgres:17
+    container_name: mantenix-vehicles-db
+    environment:
+      POSTGRES_DB: mantenix_vehicles
+      POSTGRES_USER: mantenix
+      POSTGRES_PASSWORD: mantenix
+    ports:
+      - "5433:5432"
+    volumes:
+      - vehicles-data:/var/lib/postgresql/data
+
+volumes:
+  vehicles-data:
